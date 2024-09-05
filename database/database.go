@@ -1,4 +1,4 @@
-package models
+package database
 
 import (
 	"gorm.io/driver/sqlite"
@@ -22,6 +22,7 @@ func ConnectDB() {
 	// migrate db
 	if err := db.AutoMigrate(
 		&User{},
+		&Memo{},
 	); err != nil {
 		log.Fatal("cannot migrate DB \n", err.Error())
 	}
